@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyCats</title>
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #titleImage {
+            max-width: 30%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        #randomButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: rgb(68, 171, 255);
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #imageContainer {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <img id="titleImage" src="https://i.imgur.com/AigHuaf.png" alt="OnlyCats Title">
+    <div id="imageContainer"></div>
+    <button id="randomButton">Show Me a Cat!</button>
+
+    <script>
+        const images = [
+            'https://i.imgur.com/Wy9L9Fw.png',
+            'https://i.imgur.com/QobR09Z.jpeg',
+            'https://i.imgur.com/MXlEaEQ.jpeg',
+            'https://i.imgur.com/oA0jUKl.jpeg',
+            'https://i.imgur.com/MVzVY0H.jpeg',
+            'https://i.imgur.com/ZKQnwGx.jpeg',
+            'https://i.imgur.com/R4aS1dN.jpeg'
+        ];
+
+        const button = document.getElementById('randomButton');
+        const imageContainer = document.getElementById('imageContainer');
+
+        button.addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * images.length);
+            const img = document.createElement('img');
+            img.src = images[randomIndex];
+            imageContainer.innerHTML = '';
+            imageContainer.appendChild(img);
+        });
+    </script>
+</body>
+</html>
